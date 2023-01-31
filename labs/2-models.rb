@@ -34,7 +34,7 @@ new_salesguy ["last_name"] = "Eng"
 new_salesguy ["email"] = "beng@gmail.com"
 new_salesguy.save
 # 3. write code to display how many salespeople rows are in the database
-puts "Salespeople: #{Salesperson.count}"
+puts "Salespeople: #{Salesperson.all.count}"
 # ---------------------------------
 # Salespeople: 2
 
@@ -42,11 +42,12 @@ puts "Salespeople: #{Salesperson.count}"
 ben = Salesperson.find_by({"first_name" => "Ben"})
 ben.first_name = "Benjamin"
 ben.save
-brian = Salesperson.find_by({"first_name" => "Brian"})
 # CHALLENGE:
 # 5. write code to display each salesperson's full name
-puts "#{ben.first_name} #{ben.last_name}"
-puts "#{brian.first_name} #{brian.last_name}"
+all_nerds = Salesperson.all
+for nerd in all_nerds
+puts "#{nerd.first_name} #{nerd.last_name}"
+end
 # ---------------------------------
 # Salespeople: 2
 # Ben Block
